@@ -27,6 +27,7 @@ func CountWords(s string) int {
 
 func Palindrome(s string) string {
 	var result string
+	// reverse string
 	for i := len(s); i > 0; i-- {
 		result += s[i-1 : i]
 	}
