@@ -1,4 +1,4 @@
-package main
+package tripofgo
 
 func ReverseString(s string) (result string) {
 	// iterate from last element to first element

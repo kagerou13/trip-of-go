@@ -1,4 +1,4 @@
-package main
+package tripofgo
 
 type InvalidINput struct {
 	msg string
