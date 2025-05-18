@@ -28,6 +28,7 @@ func (s *Stack) Peek() int {
 		panic("Empty stack")
 	}
 
+	// get last element without delete
 	top := s.element[len(s.element)-1]
 
 	return top
