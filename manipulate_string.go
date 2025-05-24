@@ -34,7 +34,7 @@ func Palindrome(s string) string {
 
 	// compare with early string
 	if result == s {
-		return "Palindrome"
+		return s
 	}
 
 	return "Not Palindrome"
