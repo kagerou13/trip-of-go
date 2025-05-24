@@ -34,7 +34,7 @@ func Palindrome(s string) string {
 
 	// compare with early string
 	if result == s {
-		return "This is palindrome"
+		return "Palindrome"
 	}
 
 	return "Not Palindrome"
@@ -65,15 +65,12 @@ func ChangeWithOthers(from, to, s string) string {
 	// iterate s
 	for _, v := range s {
 		// if c as index is larger than length of from string
-		if c > len(from) {
+		if c > len(from) || from[c-1:c] != string(v) {
 			newStr += string(v)
-		}
-
-		// compare from string with s string
-		if from[c-1:c] == string(v) {
+		} else if from[c-1:c] == string(v) {
+			// compare from string with s string
 			newStr += to[c-1 : c]
-		} else {
-			newStr += string(v)
+			c++
 		}
 	}
 
