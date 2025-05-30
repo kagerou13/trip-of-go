@@ -1,0 +1,14 @@
+how to push project to github
+
+1. git init
+2. git add . (all files)
+   git add go.mod
+   git add name_file.go
+3. git commit -m 'name_commit'
+4. git remote add origin git@github.com/kagerou13/trip-of-go.git 
+   git remote add origin git@(name_repository_on_github).git
+5. git push origin master
+
+how to add tag to repository on github
+1. git tag v1.0.0
+2. git push origin v1.0.0
