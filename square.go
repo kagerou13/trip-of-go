@@ -20,5 +20,6 @@ func AroundOfSquare(a, b int) (int, error) {
 	if a <= 0 || b <= 0 {
 		return 0, &InvalidINput{msg: "Invalid input, can't count Around"}
 	}
+	//return 2 value
 	return (2 * b) + (2 * b), nil
 }
