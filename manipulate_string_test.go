@@ -22,6 +22,33 @@ assert  vs require
 assert  --> display spesific detail from failed test
 require --> display spesific detail from failed test
 
+TestMain -- Before and After Test
+use parameter m *testing.M -> m.Run()
+
+TestSubTest --
+use parameter t *testing.T -> t.Run()
+can testing many test function
+
+Table Test
+use slice struct
+how to declare
+var := []struct {
+	field
+}{
+	{
+		field : value,
+	}
+}
+
+after that, iterate table test
+for _, v := range var {
+	t.Run(name string, func (t *testing.T) bool {
+		result := ()
+		assert or require
+	})
+}
+
+
 */
 
 func TestTable(t *testing.T) {
@@ -81,7 +108,7 @@ func TestCountWords(t *testing.T) {
 
 func TestPalindrome(t *testing.T) {
 	result := Palindrome("aka") // input and output string
-	if result != "Palindrome" {
+	if result != "aka" {
 		t.Error("String is not palindrome")
 	}
 
@@ -154,6 +181,11 @@ func TestSimpleRegex(t *testing.T) {
 			request:  "Hello Guys! What's up?",
 			expected: "Hello Guys Whats up",
 		},
+		{
+			name:     "Third Testing for Simple Regex",
+			request:  "I like Go! why? because it's simple",
+			expected: "I like Go why because its simple",
+		},
 	}
 
 	for _, test := range tests {
@@ -181,13 +213,39 @@ func TestPairSumSorted(t *testing.T) {
 			name:     "Second Testing for Pair Sum Sorted",
 			req1:     []int{1, 1, 1},
 			req2:     2,
-			expected: [][]int{[]int{0, 1}, []int{0, 2}, []int{1, 0}, []int{1, 2}, []int{2, 0}, []int{2, 1}},
+			expected: [][]int{{0, 1}, {0, 2}, {1, 0}, {1, 2}, {2, 0}, {2, 1}},
 		},
 	}
 
 	for _, test := range testsPair {
 		t.Run(test.name, func(t *testing.T) {
 			result := PairSumSorted(test.req1, test.req2)
+			require.Equal(t, test.expected, result, "Testing Done")
+		})
+	}
+}
+
+func TestShiftZeroToEnd(t *testing.T) {
+	tests := []struct {
+		name     string
+		request  []int
+		expected []int
+	}{
+		{
+			name:     "First Testing for shift zero",
+			request:  []int{0, 1, 0, 3, 2},
+			expected: []int{1, 3, 2, 0, 0},
+		},
+		{
+			name:     "Second Testing for shift zero",
+			request:  []int{0, 0, 4, 6, 0, 1, 0, 3, 2},
+			expected: []int{4, 6, 1, 3, 2, 0, 0, 0, 0},
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			result := ShiftZeroToEnd(test.request)
 			require.Equal(t, test.expected, result, "Testing Done")
 		})
 	}
