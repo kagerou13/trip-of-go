@@ -1,14 +1,17 @@
 package tripofgo
 
+// import "fmt"
+
 func CheckBiggerNumber(n ...int) (max int) {
 	if len(n) > 3 {
-		panic("Not allowed more than 3 numbers")
+		return -1
 	}
 
 	for _, v := range n {
-		if max > v {
+		if max < v {
 			max = v
 		}
 	}
+
 	return
 }
