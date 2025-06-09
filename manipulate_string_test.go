@@ -250,3 +250,29 @@ func TestShiftZeroToEnd(t *testing.T) {
 		})
 	}
 }
+
+func TestCheckBiggerNumber(t *testing.T) {
+	tests := []struct {
+		name     string
+		request  []int
+		expected int
+	}{
+		{
+			name:     "first testing",
+			request:  []int{4, 2, 5},
+			expected: 5,
+		},
+		{
+			name:     "second testing",
+			request:  []int{1, 5, 2, 6},
+			expected: -1,
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			result := CheckBiggerNumber(test.request...)
+			assert.Equal(t, test.expected, result, "Testing Done")
+		})
+	}
+}
